@@ -33,11 +33,11 @@ export async function createPost(prevState, formData) {
     content,
     userId: 1,
   });
-
+  revalidatePath("/", "layout");
   redirect("/feed");
 }
 
 export async function togglePostLikeStatus(postId) {
   updatePostLikeStatus(postId, 2);
-  revalidatePath("/feed");
+  revalidatePath("/", "layout");
 }
